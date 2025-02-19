@@ -54211,7 +54211,7 @@ r=r.b.ad(r.a.gC())
 q=s.e
 q=q.b.ad(q.a.gC())
 s.a.toString
-return A.VZ(A.a7B("assets/images/Pajeet.png",B.uG),(o.b-(p.r.b+56+50))*q,o.a*r)},
+return A.VZ(A.a7B("assets/images/pajeet.png",B.uG),(o.b-(p.r.b+56+50))*q,o.a*r)},
 $S:360}
 A.wc.prototype={
 l(){var s=this,r=s.dF$
