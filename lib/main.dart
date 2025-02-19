@@ -14,33 +14,42 @@ class MainApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.orange,
-          title: const Text('My Static Website'),
-          actions: [
-            _buildLinkButton('assets/images/x.png', 'https://twitter.com'),
-            _buildLinkButton('assets/images/tg.png', 'https://telegram.org'),
-            _buildLinkButton(
-              'assets/images/dex.png',
-              'https://dexscreener.com',
+          title: Center(
+            child: const Text(
+              'NO JEETS IN MY BALANCE SHEETS',
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            _buildLinkButton('assets/images/pf.jpg', 'https://pump.fun'),
-          ],
+          ),
         ),
         backgroundColor: Colors.white,
-        body: const Center(
-          child: Text(
-            'Welcome to My Static Website!',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
+        body: const ExpandingImageAnimation(
+          imagePath: 'assets/images/Pajeet.png', // Replace with your image
         ),
         bottomNavigationBar: BottomAppBar(
           color: Colors.green,
-          child: SizedBox(height: 50),
+          child: SizedBox(
+            height: 50,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                buildLinkButton('assets/images/pf.jpg', 'https://pump.fun'),
+                buildLinkButton(
+                  'assets/images/x.png',
+                  'https://x.com/ExcuseMeNoJeets',
+                ),
+                buildLinkButton(
+                  'assets/images/dex.png',
+                  'https://dexscreener.com',
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
   }
 
-  Widget _buildLinkButton(String assetPath, String url) {
+  Widget buildLinkButton(String assetPath, String url) {
     return IconButton(
       icon: Image.asset(assetPath),
       onPressed: () => _launchURL(url),
@@ -53,5 +62,71 @@ class MainApp extends StatelessWidget {
     } else {
       throw 'Could not launch $url';
     }
+  }
+}
+
+class ExpandingImageAnimation extends StatefulWidget {
+  final String imagePath;
+
+  const ExpandingImageAnimation({super.key, required this.imagePath});
+
+  @override
+  State<ExpandingImageAnimation> createState() =>
+      _ExpandingImageAnimationState();
+}
+
+class _ExpandingImageAnimationState extends State<ExpandingImageAnimation>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 3), // Adjust animation duration here
+      vsync: this,
+    );
+
+    _animation = Tween<double>(
+      begin: 0.05,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+
+    // Start the animation automatically
+    _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        // Expanding image
+        Center(
+          child: AnimatedBuilder(
+            animation: _animation,
+            builder: (context, child) {
+              final screenSize = MediaQuery.of(context).size;
+              final maxWidth = screenSize.width;
+              final maxHeight =
+                  screenSize.height -
+                  (MediaQuery.of(context).padding.top + kToolbarHeight + 50);
+
+              return SizedBox(
+                width: maxWidth * _animation.value,
+                height: maxHeight * _animation.value,
+                child: Image.asset(widget.imagePath, fit: BoxFit.cover),
+              );
+            },
+          ),
+        ),
+      ],
+    );
   }
 }
