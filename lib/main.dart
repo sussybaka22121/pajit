@@ -23,7 +23,7 @@ class MainApp extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         body: const ExpandingImageAnimation(
-          imagePath: 'assets/images/Pajeet.png', // Replace with your image
+          imagePath: 'assets/images/pajeet.png',
         ),
         bottomNavigationBar: BottomAppBar(
           color: Colors.green,
