@@ -54164,7 +54164,7 @@ return B.c.az(r,s)},
 $S:359}
 A.zB.prototype={
 T(a){var s=null,r=A.xm(B.JF,s,s)
-return new A.qJ(new A.rP(new A.oI(r,B.C5,new A.FZ(s,s,1/0,56),s),B.xO,B.i,new A.oQ(A.VZ(A.aif(A.b([this.uJ("assets/images/pf.jpg","https://pump.fun"),this.uJ("assets/images/x.png","https://x.com/ExcuseMeNoJeets"),this.uJ("assets/images/dex.png","https://dexscreener.com")],t.nA),B.c9,B.nV,B.nW),50,s),B.C6,s),s),s)},
+return new A.qJ(new A.rP(new A.oI(r,B.C5,new A.FZ(s,s,1/0,56),s),B.xO,B.i,new A.oQ(A.VZ(A.aif(A.b([this.uJ("assets/images/pf.jpg","https://pump.fun/coin/71sxK8UWUeNDQhSzALAPvurYutW1Jncr2UshjjP1pump"),this.uJ("assets/images/x.png","https://x.com/ExcuseMeNoJeets"),this.uJ("assets/images/dex.png","https://dexscreener.com")],t.nA),B.c9,B.nV,B.nW),50,s),B.C6,s),s),s)},
 uJ(a,b){var s=null
 return A.a7w(s,s,A.a7B(a,s),s,s,new A.Pe(this,b),s,s,s)},
 lL(a){return this.PM(a)},

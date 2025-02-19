@@ -32,7 +32,10 @@ class MainApp extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                buildLinkButton('assets/images/pf.jpg', 'https://pump.fun'),
+                buildLinkButton(
+                  'assets/images/pf.jpg',
+                  'https://pump.fun/coin/71sxK8UWUeNDQhSzALAPvurYutW1Jncr2UshjjP1pump',
+                ),
                 buildLinkButton(
                   'assets/images/x.png',
                   'https://x.com/ExcuseMeNoJeets',
